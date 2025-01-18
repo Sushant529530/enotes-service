@@ -1,0 +1,91 @@
+package com.becoder.entity;
+
+import java.util.Date;
+
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@MappedSuperclass
+public class BaseModel {
+
+   private Boolean  isActive;
+	
+	private Boolean isDeleted;
+	
+	private Integer createdBy;
+	
+	private Date createdon;
+	
+	private Integer updatedBy;
+	
+	private Date updatedon;
+
+	public BaseModel(Boolean isActive, Boolean isDeleted, Integer createdBy, Date createdon, Integer updatedBy,
+			Date updatedon) {
+		super();
+		this.isActive = isActive;
+		this.isDeleted = isDeleted;
+		this.createdBy = createdBy;
+		this.createdon = createdon;
+		this.updatedBy = updatedBy;
+		this.updatedon = updatedon;
+	}
+
+	public BaseModel() {
+		super();
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	public Integer getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Integer createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedon() {
+		return createdon;
+	}
+
+	public void setCreatedon(Date createdon) {
+		this.createdon = createdon;
+	}
+
+	public Integer getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Integer updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedon() {
+		return updatedon;
+	}
+
+	public void setUpdatedon(Date updatedon) {
+		this.updatedon = updatedon;
+	}
+	
+	
+	
+}

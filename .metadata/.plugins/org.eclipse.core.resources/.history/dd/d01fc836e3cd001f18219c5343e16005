@@ -1,0 +1,72 @@
+package com.becoder.entity;
+
+import java.util.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+public class Category extends BaseModel {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	private String name;
+	
+	private String description;
+
+	public Category(Integer catogory_id, String name, String description) {
+		super();
+		this.id = catogory_id;
+		this.name = name;
+		this.description = description;
+	}
+
+	public Category() {
+		super();
+	}
+
+	public Integer getCatogory_id() {
+		return id;
+	}
+
+	public void setCatogory_id(Integer catogory_id) {
+		this.id = catogory_id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
+	
+	
+	
+	
+	
+}
