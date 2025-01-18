@@ -1,0 +1,5 @@
+package com.becoder.service.impl;
+
+public class CategoryServiceImpl {
+
+}
