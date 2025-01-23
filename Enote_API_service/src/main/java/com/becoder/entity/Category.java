@@ -38,13 +38,23 @@ public class Category extends BaseModel {
 	public Category() {
 		super();
 	}
+	
+	
 
-	public Integer getCatogory_id() {
+//	public Integer getCatogory_id() {
+//		return id;
+//	}
+//
+//	public void setCatogory_id(Integer catogory_id) {
+//		this.id = catogory_id;
+//	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setCatogory_id(Integer catogory_id) {
-		this.id = catogory_id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -62,11 +72,5 @@ public class Category extends BaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
-	
-	
-	
-	
+ 	
 }

@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.becoder.dto.CategoryDto;
+import com.becoder.dto.CategoryResponseDto;
 import com.becoder.entity.Category;
 import com.becoder.service.CategoryService;
 
@@ -25,11 +26,11 @@ public class CategoryController {
 	public CategoryService categoryService;
 	
 	@PostMapping("/save-category")
-	public ResponseEntity<?> saveCategory(@RequestBody Category category){
-		category.setIsActive(true);
+	public ResponseEntity<?> saveCategory(@RequestBody CategoryDto category){
+		category.setIs_Active(true);
 //		category.setCreatedon()
-		System.out.println(category.getIsActive()+" "+category.getDescription()+" "+category.getCreatedBy());
-		Boolean saveCategory = categoryService.saveCategory(category);
+		System.out.println(category.getIs_Active()+" "+category.getDescription()+" "+category.getCreated_by());
+		Boolean saveCategory  = categoryService.saveCategory(category);
 		if(saveCategory == true) {
 		return new ResponseEntity<>("saved", HttpStatus.CREATED);
 		}
@@ -44,7 +45,7 @@ public class CategoryController {
 	@GetMapping("/categories")
 	public ResponseEntity<?> getAllCategory(){
 		
-		List<Category> allCategory = categoryService.getAllCategory();
+		List<CategoryResponseDto> allCategory = categoryService.getAllCategory();
 		 
 		if(CollectionUtils.isEmpty(allCategory) ) {
 		return   ResponseEntity.noContent().build();
@@ -57,7 +58,21 @@ public class CategoryController {
 		
 	}
 	
-	
+	@GetMapping("/active_category")
+	public ResponseEntity<?> getActiveCategory(){
+		
+		List<CategoryResponseDto> allCategory = categoryService.getActiveCategory();
+		 
+		if(CollectionUtils.isEmpty(allCategory) ) {
+		return   ResponseEntity.noContent().build();
+		}
+		else
+		{
+			return new ResponseEntity<>(allCategory, HttpStatus.OK);
+		}
+			
+		
+	}
 	
 	
 }
